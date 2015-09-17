@@ -1,13 +1,29 @@
+import processing.core.*; 
+import processing.data.*; 
+import processing.event.*; 
+import processing.opengl.*; 
+
+import java.util.HashMap; 
+import java.util.ArrayList; 
+import java.io.File; 
+import java.io.BufferedReader; 
+import java.io.PrintWriter; 
+import java.io.InputStream; 
+import java.io.OutputStream; 
+import java.io.IOException; 
+
+public class Dice extends PApplet {
+
 int w=70;
 
 
-void setup()
+public void setup()
 {
 	size(500,500);
 	noLoop();
 }
 
-void draw()
+public void draw()
 {
 Die oneDie = new Die(100,100);
 oneDie.roll();
@@ -15,7 +31,7 @@ oneDie.show();
 //Die twoDie = new Die(300,300);
 }
 
-void mousePressed()
+public void mousePressed()
 {
 	redraw();
 }
@@ -29,12 +45,12 @@ class Die //models one single dice cube
 		myX=x;
 		myY=y;	//variable initializations here
 	}
-	void roll()
+	public void roll()
 	{
 		
 	//your code here
 	}
-	void show()
+	public void show()
 	{
 		int dot1= 1;
 		int dot2= 2;
@@ -80,7 +96,7 @@ class Die //models one single dice cube
 		}
 	}
 
-	void oneDot()
+	public void oneDot()
 	{
 
 		//Die shape and background
@@ -92,7 +108,7 @@ class Die //models one single dice cube
 		ellipse(myX+34,myY+35,20,20);
 	}
 
-	void twoDot()
+	public void twoDot()
 	{
 
 		//Die shape and background
@@ -105,4 +121,13 @@ class Die //models one single dice cube
 		ellipse(myX+w*(2/3),myY+w*(2/3),20,20);
 
 	}
+}
+  static public void main(String[] passedArgs) {
+    String[] appletArgs = new String[] { "Dice" };
+    if (passedArgs != null) {
+      PApplet.main(concat(appletArgs, passedArgs));
+    } else {
+      PApplet.main(appletArgs);
+    }
+  }
 }
