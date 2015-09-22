@@ -3,9 +3,10 @@
 int w=100;
 int total;
 
+
 void setup()
 {
-	size(1000,1000);
+	size(500,500);
 	noLoop();
 }
 
@@ -13,9 +14,9 @@ void draw()
 {
 	total=0;
 
-  for (int myY=50; myY<=500; myY+=150)
+  for (int myY=50; myY<=350; myY+=150)
     {
-      for (int myX=50; myX<=500; myX+=150)
+      for (int myX=50; myX<=350; myX+=150)
       {
 		Die oneDie = new Die(myX,myY);
 		oneDie.roll();
@@ -23,7 +24,8 @@ void draw()
 		total = total + oneDie.myDots;
       }
     }
-    	System.out.print("Total" + total + " ");
+        stroke(random(250),random(250),random(250));
+    	text("Total" + total + " ",10,489,50);
 
 }
 
@@ -31,6 +33,7 @@ void mousePressed()
 {
 
 	total=0;
+	background(random(230),random(230),random(230));
 	redraw();
 
 }
@@ -127,7 +130,7 @@ class Die //models one single dice cube
 
 	//Die shape and background
 	stroke(0,255,247);
-	fill(178,230,233);
+	fill(random(255),230,random(255));
 	rect(myX,myY,w,w);
 	//Four dot for die
 	fill(0);
